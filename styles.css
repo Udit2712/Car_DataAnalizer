@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+html {
+  font-family: roboto, Sans-Serif, Arial;
+}
+body {
+  font-family: roboto, Sans-Serif, Arial;
+  background: linear-gradient(-45deg, #2355c7, #96dede, #5a8739, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+/* .cont2 {
+  background-image: url('https://www.desktopbackground.org/download/1680x1050/2012/08/10/434641_car-backgrounds-view-images-vehicle-wallpapers_1920x1200_h.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  opacity: 1;
+} */
+/* .r1{
+    margin-left:80px;  
+}
+.d{
+    padding:20px !important;
+    height:20px !important;
+    width:30px !important;
+} */
+#foot {
+  /* position:absolute;
+    bottom: 10px; */
+  /* left:0px; */
+  width: 100%;
+  /* background-color: black !important; */
+}
+
+/* #biggerdiv {
+  
+} */
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
