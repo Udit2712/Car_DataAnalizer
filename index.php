@@ -1,75 +1,75 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "cars_engage";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "cars_engage";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-//sql queries
-$sql = "SELECT ID_Number,Make,Model,Variant,ExShowroom_Price,Body_Type,ARAI_Certified_Mileage_in_kmlitre,POINT_SUM,Fuel_Type,Power FROM cars_data";
-$pricer = $make = $body_Type = $Fuel_Type = $qu_price_r = $qu_bdy_type = $qu_make = $qu_fuel_type = "";
-$end_coma = ";";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $pricer = ($_POST["pricer"]);
-    // selecting price ranges for query
-    if ($pricer == "Select Price Range") {
-        $qu_price_r = "";
-    } else {
-        $tmp_price = (explode("_", $pricer));
-        $st_price = $tmp_price[0];
-        if (!empty($tmp_price[1])) {
-            $lt_price = $tmp_price[1];
-            $qu_price_r = " where ExShowroom_Price > {$st_price} AND ExShowroom_Price<={$lt_price}";
-        } else {
-            $lt_price = "";
-            $qu_price_r = " where ExShowroom_Price > {$st_price}";
-        }
-    }
-    $sql .= $qu_price_r;
-    $make = ($_POST["make"]);
-    if ($make == "Company Names") {
-        $qu_make = "";
-    } else {
-        //if condition for company name
-        if ($pricer == "Select Price Range") {
-            $qu_make = " where Make ='{$make}'";
-        } else {
-            $qu_make = " and Make ='{$make}'";
-        }
-    }
-    $sql .= $qu_make;
-    //Condtioning for body type
-    $Body_Type = ($_POST["Body_Type"]);
-    if ($Body_Type == "Body Type") {
-        $qu_bdy_type = "";
-    } else {
-        if ($make == "Company Names" and $pricer == "Select Price Range") {
-            $qu_bdy_type = " where Body_Type ='{$Body_Type}'";
-        } else {
-            $qu_bdy_type = " and Body_Type ='{$Body_Type}'";
-        }
-    }
-    $sql .= $qu_bdy_type;
-    //conditioning for fuel type
-    $Fuel_Type = ($_POST["Fuel_Type"]);
-    if ($Fuel_Type == "Select Fuel Type") {
-        $qu_fuel_type = "";
-    } else {
-        if ($make == "Company Names" and $pricer == "Select Price Range") {
-            $qu_fuel_type = " where Fuel_Type ='{$Fuel_Type}'";
-        } else {
-            $qu_fuel_type = " and Fuel_Type ='{$Fuel_Type}'";
-        }
-    }
-    $sql .= $qu_fuel_type;
-}
-$sql .= $end_coma;
-$result = $conn->query($sql);
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $dbname);
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+// //sql queries
+// $sql = "SELECT ID_Number,Make,Model,Variant,ExShowroom_Price,Body_Type,ARAI_Certified_Mileage_in_kmlitre,POINT_SUM,Fuel_Type,Power FROM cars_data";
+// $pricer = $make = $body_Type = $Fuel_Type = $qu_price_r = $qu_bdy_type = $qu_make = $qu_fuel_type = "";
+// $end_coma = ";";
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $pricer = ($_POST["pricer"]);
+//     // selecting price ranges for query
+//     if ($pricer == "Select Price Range") {
+//         $qu_price_r = "";
+//     } else {
+//         $tmp_price = (explode("_", $pricer));
+//         $st_price = $tmp_price[0];
+//         if (!empty($tmp_price[1])) {
+//             $lt_price = $tmp_price[1];
+//             $qu_price_r = " where ExShowroom_Price > {$st_price} AND ExShowroom_Price<={$lt_price}";
+//         } else {
+//             $lt_price = "";
+//             $qu_price_r = " where ExShowroom_Price > {$st_price}";
+//         }
+//     }
+//     $sql .= $qu_price_r;
+//     $make = ($_POST["make"]);
+//     if ($make == "Company Names") {
+//         $qu_make = "";
+//     } else {
+//         //if condition for company name
+//         if ($pricer == "Select Price Range") {
+//             $qu_make = " where Make ='{$make}'";
+//         } else {
+//             $qu_make = " and Make ='{$make}'";
+//         }
+//     }
+//     $sql .= $qu_make;
+//     //Condtioning for body type
+//     $Body_Type = ($_POST["Body_Type"]);
+//     if ($Body_Type == "Body Type") {
+//         $qu_bdy_type = "";
+//     } else {
+//         if ($make == "Company Names" and $pricer == "Select Price Range") {
+//             $qu_bdy_type = " where Body_Type ='{$Body_Type}'";
+//         } else {
+//             $qu_bdy_type = " and Body_Type ='{$Body_Type}'";
+//         }
+//     }
+//     $sql .= $qu_bdy_type;
+//     //conditioning for fuel type
+//     $Fuel_Type = ($_POST["Fuel_Type"]);
+//     if ($Fuel_Type == "Select Fuel Type") {
+//         $qu_fuel_type = "";
+//     } else {
+//         if ($make == "Company Names" and $pricer == "Select Price Range") {
+//             $qu_fuel_type = " where Fuel_Type ='{$Fuel_Type}'";
+//         } else {
+//             $qu_fuel_type = " and Fuel_Type ='{$Fuel_Type}'";
+//         }
+//     }
+//     $sql .= $qu_fuel_type;
+// }
+// $sql .= $end_coma;
+// $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -96,49 +96,49 @@ $result = $conn->query($sql);
 
     <div class="container-fluid pl-sm-4 pr-sm-4 c1">
 
-        <nav class="navbar navbar-expand-sm bg-light navbar-light">
-            <!-- <a class="navbar-brand" href="#"> <img src="https://stimg.cardekho.com/pwa/img/Desktop-logo.svg" alt="Logo">
-            </a> -->
-            <span>
-                <b>Car Data Analyser</b>
-            </span>
-            <!-- <button class="navbar-toggler" name="model" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                <ul class="navbar-nav p-sm-2" stye="position:fixed;overflow-x:hidden">
-                <ul class="navbar-nav" stye="position:fixed;overflow-x:hidden">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <!-- <a class="navbar-brand" href="#"> <img src="https://stimg.cardekho.com/pwa/img/Desktop-logo.svg" alt="Logo">
+    </a> -->
+    <span>
+        <b>Car Data Analyser</b>
+    </span>
+    <!-- <button class="navbar-toggler" name="model" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+        <ul class="navbar-nav p-sm-2" stye="position:fixed;overflow-x:hidden">
+        <ul class="navbar-nav" stye="position:fixed;overflow-x:hidden">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navdropdown" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Link 1</a>
-                            <a class="dropdown-item" href="#">Link 2</a>
-                            <a class="dropdown-item" href="#">Link 3</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Features</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Link 1</a>
-                            <a class="dropdown-item" href="#">Link 2</a>
-                            <a class="dropdown-item" href="#">Link 3</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Explore</a>
-                    </li>
-                </ul>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search cars or brands">
-                    <button class="btn btn-dark" type="submit">Search</button>
-                </form>
-            </div> -->
-        </nav>
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navdropdown" data-toggle="dropdown">Pages</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Features</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" href="data_report.php">See Data Report</a>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search cars or brands">
+            <button class="btn btn-dark" type="submit">Search</button>
+        </form>
     </div>
+</nav>
+</div>
 
     <!-- second container-->
     <div class="container-fluid" id="biggerdiv">
@@ -673,44 +673,44 @@ $result = $conn->query($sql);
     <div class="container" id="result">
         <?php
         //making a dynamic table for result from the sql query
-        $row_cnt = $result->num_rows;
-        if ($row_cnt > 0) {
-            echo "<table class='table table-striped text-light'>
-                            <tr>
-                            <b>
-                                <th>S.No</th>
-                                <th>No. of Points</th>
-                                <th>Make</th>
-                                <th>Model</th>
-                                <th>Variant</th>
-                                <th>Ex-Showroom Price</th>
-                                <th>Body Type</th>
-                                <th>Milage in Km/L</th>
-                                <th>Fuel Type</th>
-                                <th>Power</th>
-                                </b>
-                            </tr>";
-            // output data of each row
-            $i = 1;
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                                <td>" . $i++ . "</td>
-                                <td>" . $row["POINT_SUM"] . "</td>
-                                <td>" . $row["Make"] . "</td>
-                                <td>" . $row["Model"] . "</td>
-                                <td>" . $row["Variant"] . "</td>
-                                <td>" . $row["ExShowroom_Price"] . "</td>
-                                <td>" . $row["Body_Type"] . "</td>
-                                <td>" . $row["ARAI_Certified_Mileage_in_kmlitre"] . "</td>
-                                <td>" . $row["Fuel_Type"] . "</td>
-                                <td>" . $row["Power"] . "</td>
-                                </tr>";
-                // ++$i;
-            }
-            echo "</table>";
-        } else {
-            echo "<b><h1 class='text-light'>No results found</h1></b";
-        }
+        // $row_cnt = $result->num_rows;
+        // if ($row_cnt > 0) {
+        //     echo "<table class='table table-striped text-light'>
+        //                     <tr>
+        //                     <b>
+        //                         <th>S.No</th>
+        //                         <th>No. of Points</th>
+        //                         <th>Make</th>
+        //                         <th>Model</th>
+        //                         <th>Variant</th>
+        //                         <th>Ex-Showroom Price</th>
+        //                         <th>Body Type</th>
+        //                         <th>Milage in Km/L</th>
+        //                         <th>Fuel Type</th>
+        //                         <th>Power</th>
+        //                         </b>
+        //                     </tr>";
+        //     // output data of each row
+        //     $i = 1;
+        //     while ($row = $result->fetch_assoc()) {
+        //         echo "<tr>
+        //                         <td>" . $i++ . "</td>
+        //                         <td>" . $row["POINT_SUM"] . "</td>
+        //                         <td>" . $row["Make"] . "</td>
+        //                         <td>" . $row["Model"] . "</td>
+        //                         <td>" . $row["Variant"] . "</td>
+        //                         <td>" . $row["ExShowroom_Price"] . "</td>
+        //                         <td>" . $row["Body_Type"] . "</td>
+        //                         <td>" . $row["ARAI_Certified_Mileage_in_kmlitre"] . "</td>
+        //                         <td>" . $row["Fuel_Type"] . "</td>
+        //                         <td>" . $row["Power"] . "</td>
+        //                         </tr>";
+        //         // ++$i;
+        //     }
+        //     echo "</table>";
+        // } else {
+        //     echo "<b><h1 class='text-light'>No results found</h1></b";
+        // }
         ?>
     </div>
     </div>
