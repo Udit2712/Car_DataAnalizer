@@ -1,75 +1,75 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "cars_engage";
+$servername = "bxlqioeaf2nxdeugfemn-mysql.services.clever-cloud.com";
+$username = "uhnbcyoa0gynhczg";
+$password = "QoD888qNbDN812WfCndP";
+$dbname = "bxlqioeaf2nxdeugfemn";
 
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-// //sql queries
-// $sql = "SELECT ID_Number,Make,Model,Variant,ExShowroom_Price,Body_Type,ARAI_Certified_Mileage_in_kmlitre,POINT_SUM,Fuel_Type,Power FROM cars_data";
-// $pricer = $make = $body_Type = $Fuel_Type = $qu_price_r = $qu_bdy_type = $qu_make = $qu_fuel_type = "";
-// $end_coma = ";";
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $pricer = ($_POST["pricer"]);
-//     // selecting price ranges for query
-//     if ($pricer == "Select Price Range") {
-//         $qu_price_r = "";
-//     } else {
-//         $tmp_price = (explode("_", $pricer));
-//         $st_price = $tmp_price[0];
-//         if (!empty($tmp_price[1])) {
-//             $lt_price = $tmp_price[1];
-//             $qu_price_r = " where ExShowroom_Price > {$st_price} AND ExShowroom_Price<={$lt_price}";
-//         } else {
-//             $lt_price = "";
-//             $qu_price_r = " where ExShowroom_Price > {$st_price}";
-//         }
-//     }
-//     $sql .= $qu_price_r;
-//     $make = ($_POST["make"]);
-//     if ($make == "Company Names") {
-//         $qu_make = "";
-//     } else {
-//         //if condition for company name
-//         if ($pricer == "Select Price Range") {
-//             $qu_make = " where Make ='{$make}'";
-//         } else {
-//             $qu_make = " and Make ='{$make}'";
-//         }
-//     }
-//     $sql .= $qu_make;
-//     //Condtioning for body type
-//     $Body_Type = ($_POST["Body_Type"]);
-//     if ($Body_Type == "Body Type") {
-//         $qu_bdy_type = "";
-//     } else {
-//         if ($make == "Company Names" and $pricer == "Select Price Range") {
-//             $qu_bdy_type = " where Body_Type ='{$Body_Type}'";
-//         } else {
-//             $qu_bdy_type = " and Body_Type ='{$Body_Type}'";
-//         }
-//     }
-//     $sql .= $qu_bdy_type;
-//     //conditioning for fuel type
-//     $Fuel_Type = ($_POST["Fuel_Type"]);
-//     if ($Fuel_Type == "Select Fuel Type") {
-//         $qu_fuel_type = "";
-//     } else {
-//         if ($make == "Company Names" and $pricer == "Select Price Range") {
-//             $qu_fuel_type = " where Fuel_Type ='{$Fuel_Type}'";
-//         } else {
-//             $qu_fuel_type = " and Fuel_Type ='{$Fuel_Type}'";
-//         }
-//     }
-//     $sql .= $qu_fuel_type;
-// }
-// $sql .= $end_coma;
-// $result = $conn->query($sql);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+//sql queries
+$sql = "SELECT ID_Number,Make,Model,Variant,ExShowroom_Price,Body_Type,ARAI_Certified_Mileage_in_kmlitre,POINT_SUM,Fuel_Type,Power FROM cars_data";
+$pricer = $make = $body_Type = $Fuel_Type = $qu_price_r = $qu_bdy_type = $qu_make = $qu_fuel_type = "";
+$end_coma = ";";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $pricer = ($_POST["pricer"]);
+    // selecting price ranges for query
+    if ($pricer == "Select Price Range") {
+        $qu_price_r = "";
+    } else {
+        $tmp_price = (explode("_", $pricer));
+        $st_price = $tmp_price[0];
+        if (!empty($tmp_price[1])) {
+            $lt_price = $tmp_price[1];
+            $qu_price_r = " where ExShowroom_Price > {$st_price} AND ExShowroom_Price<={$lt_price}";
+        } else {
+            $lt_price = "";
+            $qu_price_r = " where ExShowroom_Price > {$st_price}";
+        }
+    }
+    $sql .= $qu_price_r;
+    $make = ($_POST["make"]);
+    if ($make == "Company Names") {
+        $qu_make = "";
+    } else {
+        //if condition for company name
+        if ($pricer == "Select Price Range") {
+            $qu_make = " where Make ='{$make}'";
+        } else {
+            $qu_make = " and Make ='{$make}'";
+        }
+    }
+    $sql .= $qu_make;
+    //Condtioning for body type
+    $Body_Type = ($_POST["Body_Type"]);
+    if ($Body_Type == "Body Type") {
+        $qu_bdy_type = "";
+    } else {
+        if ($make == "Company Names" and $pricer == "Select Price Range") {
+            $qu_bdy_type = " where Body_Type ='{$Body_Type}'";
+        } else {
+            $qu_bdy_type = " and Body_Type ='{$Body_Type}'";
+        }
+    }
+    $sql .= $qu_bdy_type;
+    //conditioning for fuel type
+    $Fuel_Type = ($_POST["Fuel_Type"]);
+    if ($Fuel_Type == "Select Fuel Type") {
+        $qu_fuel_type = "";
+    } else {
+        if ($make == "Company Names" and $pricer == "Select Price Range") {
+            $qu_fuel_type = " where Fuel_Type ='{$Fuel_Type}'";
+        } else {
+            $qu_fuel_type = " and Fuel_Type ='{$Fuel_Type}'";
+        }
+    }
+    $sql .= $qu_fuel_type;
+}
+$sql .= $end_coma;
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -673,44 +673,44 @@
     <div class="container" id="result">
         <?php
         //making a dynamic table for result from the sql query
-        // $row_cnt = $result->num_rows;
-        // if ($row_cnt > 0) {
-        //     echo "<table class='table table-striped text-light'>
-        //                     <tr>
-        //                     <b>
-        //                         <th>S.No</th>
-        //                         <th>No. of Points</th>
-        //                         <th>Make</th>
-        //                         <th>Model</th>
-        //                         <th>Variant</th>
-        //                         <th>Ex-Showroom Price</th>
-        //                         <th>Body Type</th>
-        //                         <th>Milage in Km/L</th>
-        //                         <th>Fuel Type</th>
-        //                         <th>Power</th>
-        //                         </b>
-        //                     </tr>";
-        //     // output data of each row
-        //     $i = 1;
-        //     while ($row = $result->fetch_assoc()) {
-        //         echo "<tr>
-        //                         <td>" . $i++ . "</td>
-        //                         <td>" . $row["POINT_SUM"] . "</td>
-        //                         <td>" . $row["Make"] . "</td>
-        //                         <td>" . $row["Model"] . "</td>
-        //                         <td>" . $row["Variant"] . "</td>
-        //                         <td>" . $row["ExShowroom_Price"] . "</td>
-        //                         <td>" . $row["Body_Type"] . "</td>
-        //                         <td>" . $row["ARAI_Certified_Mileage_in_kmlitre"] . "</td>
-        //                         <td>" . $row["Fuel_Type"] . "</td>
-        //                         <td>" . $row["Power"] . "</td>
-        //                         </tr>";
-        //         // ++$i;
-        //     }
-        //     echo "</table>";
-        // } else {
-        //     echo "<b><h1 class='text-light'>No results found</h1></b";
-        // }
+        $row_cnt = $result->num_rows;
+        if ($row_cnt > 0) {
+            echo "<table class='table table-striped text-light'>
+                            <tr>
+                            <b>
+                                <th>S.No</th>
+                                <th>No. of Points</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Variant</th>
+                                <th>Ex-Showroom Price</th>
+                                <th>Body Type</th>
+                                <th>Milage in Km/L</th>
+                                <th>Fuel Type</th>
+                                <th>Power</th>
+                                </b>
+                            </tr>";
+            // output data of each row
+            $i = 1;
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                                <td>" . $i++ . "</td>
+                                <td>" . $row["POINT_SUM"] . "</td>
+                                <td>" . $row["Make"] . "</td>
+                                <td>" . $row["Model"] . "</td>
+                                <td>" . $row["Variant"] . "</td>
+                                <td>" . $row["ExShowroom_Price"] . "</td>
+                                <td>" . $row["Body_Type"] . "</td>
+                                <td>" . $row["ARAI_Certified_Mileage_in_kmlitre"] . "</td>
+                                <td>" . $row["Fuel_Type"] . "</td>
+                                <td>" . $row["Power"] . "</td>
+                                </tr>";
+                // ++$i;
+            }
+            echo "</table>";
+        } else {
+            echo "<b><h1 class='text-light'>No results found</h1></b";
+        }
         ?>
     </div>
     </div>
