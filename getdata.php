@@ -8,7 +8,7 @@ require_once 'includes/header.php';
 
     <div class="container" id="result">
         <?php
-        // $x = "SELECT ID_Number,Make,Model,Variant,ExShowroom_Price,Body_Type,ARAI_Certified_Mileage_in_kmlitre,POINT_SUM FROM cars_data where Body_Type='hatchback' and  ExShowroom_Price < 1000000 and POINT_SUM=(SELECT MAX(POINT_SUM) FROM cars_data where ExShowroom_Price < 1000000 and Body_Type='hatchback')";
+       
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($_POST["pricer"] == "Select Price Range" and $_POST["make"] == "Company Names" and $_POST["Body_Type"] == "Body Type" and $_POST["Fuel_Type"] == "Select Fuel Type") {
                 echo "<b><h1 class='mt-5 text-light'>No Values Selected</h1></b";
@@ -21,15 +21,13 @@ require_once 'includes/header.php';
                 $end_coma = ";";
                 $end_bracket = ")";
                 $pricer = ($_POST["pricer"]);
-                // selecting price ranges for query
 
                 if ($pricer == "Select Price Range") {
                     $qu_price_r = "";
                     $topctmprice = "";
                 } else {
                     $tmp_price = (explode("_", $pricer));
-                    // print_r($tmp_price);
-                    // ""
+                    
                     $st_price = $tmp_price[0];
                     if (!empty($tmp_price[1])) {
                         $lt_price = $tmp_price[1];
@@ -51,7 +49,6 @@ require_once 'includes/header.php';
                     $qu_make = "";
                     $topctmmake = "";
                 } else {
-                    // print_r($tmp_price);
                     if ($pricer == "Select Price Range") {
                         $qu_make = " where Make ='{$make}'";
                         $topctmmake = " where Make ='{$make}'";
@@ -70,8 +67,7 @@ require_once 'includes/header.php';
                 if ($Body_Type == "Body Type") {
                     $qu_bdy_type = "";
                     $topctmbody = "";
-                    // echo "-=================================-";
-                    // echo $maxsel;
+
                 } else {
                     if ($make == "Company Names" and $pricer == "Select Price Range") {
                         $qu_bdy_type = " where Body_Type ='{$Body_Type}'";
@@ -80,21 +76,17 @@ require_once 'includes/header.php';
                         $qu_bdy_type = " and Body_Type ='{$Body_Type}'";
                         $topctmbody = " and Body_Type ='{$Body_Type}'";
                     }
-                    // echo "-=================================-";
-                    // echo $maxsel;
                 }
                 $sql .= $qu_bdy_type;
                 $sqltopcar .= $topctmbody;
                 $maxsel .= $topctmbody;
-                // echo "-=================================-";
-                // echo $maxsel;
+                
 
                 $Fuel_Type = ($_POST["Fuel_Type"]);
                 if ($Fuel_Type == "Select Fuel Type") {
                     $qu_fuel_type = "";
                     $topctmfuel = "";
-                    // echo "-=================================-";
-                    // echo $maxsel;
+                    
                 } else {
                     if ($make == "Company Names" && $pricer == "Select Price Range" && $Body_Type == "Body Type") {
                         $qu_fuel_type = " where Fuel_Type ='{$Fuel_Type}'";
@@ -103,33 +95,23 @@ require_once 'includes/header.php';
                         $qu_fuel_type = " and Fuel_Type ='{$Fuel_Type}'";
                         $topctmfuel = " and Fuel_Type ='{$Fuel_Type}'";
                     }
-                    // echo "-=================================-";
-                    // echo $maxsel;
                 }
                 $sql .= $qu_fuel_type;
                 $sqltopcar .= $topctmfuel;
                 $maxsel .= $topctmfuel;
-                // echo $maxsel;
-                if (empty($maxsel)) { //is maxsel empty? yes
+                
+                if (empty($maxsel)) {
                     $sqltopcar .= " where ";
                 } else {
                     $sqltopcar .= " and ";
                 }
-                // echo "maxsel query=" . $maxsel . "\n";
-                // echo "-=================================-";
-                // echo  "sqltopcar query=" . $sqltopcar . "\n";
-                // echo "-=================================-";
+
                 $sqltopcar .= $maxsel;
                 $sqltopcar .= $end_bracket;
                 $sqltopcar .= $end_coma;
-                // echo  "sqltopcar query=" . $sqltopcar . "\n";
-                // echo "-=================================-";
-                // echo  "maxsel query=" . $maxsel . "\n";
-
+           
                 $sql .= $end_coma;
-                // echo $sql;
-                // echo "-=================================-";
-                // echo $sqltopcar;
+           
                 $result = $conn->query($sql);
                 $topCarResult = $conn->query($sqltopcar);
             }
@@ -139,7 +121,7 @@ require_once 'includes/header.php';
         ?>
         <?php
         if ($_POST["pricer"] == "Select Price Range" and $_POST["make"] == "Company Names" and $_POST["Body_Type"] == "Body Type" and $_POST["Fuel_Type"] == "Select Fuel Type") {
-            // echo "<b><h1 class='text-light'>No Values Selected</h1></b";
+           
         } else {
             if ($Fuel_Type == "CNG") {
                 $row_cnt = $result->num_rows;
