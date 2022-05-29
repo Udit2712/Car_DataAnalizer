@@ -22,6 +22,11 @@ _PHP_
 
 Go this link https://car-data-analizer.herokuapp.com/index.php
 
-![Frontend of the web application](https://user-images.githubusercontent.com/78135334/170882240-6bb838b6-2af3-4e41-8ca3-9bb8371dab32.png "Frontend of the web application")
-![Result in the tabular form](https://user-images.githubusercontent.com/78135334/170882244-873faf64-f640-4ff9-b4a6-fb70c4ac767e.png "Result in the tabular form")
-![Report Chart](https://user-images.githubusercontent.com/78135334/170882245-38d18d1e-5e5e-4d36-a7c3-78405f18c9b6.png "Report Charts")
+*Frontend of the web application*
+![Frontend of the web application](https://user-images.githubusercontent.com/78135334/170882240-6bb838b6-2af3-4e41-8ca3-9bb8371dab32.png)
+
+*Result in the tabular form*
+![Result in the tabular form](https://user-images.githubusercontent.com/78135334/170882244-873faf64-f640-4ff9-b4a6-fb70c4ac767e.png)
+
+*Report Charts*
+![Report Chart](https://user-images.githubusercontent.com/78135334/170882245-38d18d1e-5e5e-4d36-a7c3-78405f18c9b6.png)
