@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "cars_engage";
+$servername = "bxlqioeaf2nxdeugfemn-mysql.services.clever-cloud.com";
+$username = "uhnbcyoa0gynhczg";
+$password = "QoD888qNbDN812WfCndP";
+$dbname = "bxlqioeaf2nxdeugfemn";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
