@@ -22,7 +22,7 @@ require_once 'includes/header.php';
                             "1 Crore"
                         ];
                         var yValues = [51.94, 63.23, 69.86, 75.41, 78.75, 79, 81.37, 86.90, 93.24];
-                        var barColors = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"];
+                        var barColors = ["blue", "red", "green", "pink", "yellow", "brown", "cyan", "orange", "purple"];
                         Chart.defaults.global.defaultFontColor = "#fff";
 
                         new Chart("pnt_pricewise", {
@@ -69,7 +69,7 @@ require_once 'includes/header.php';
                         ];
 
                         var yValues = [51.94, 63.23, 69.86, 75.41, 78.75, 79, 81.37, 86.9, 93.2];
-                        var barColors = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"];
+                        var barColors = ["blue", "red", "green", "pink", "yellow", "brown", "cyan", "orange", "purple"];
                         Chart.defaults.global.defaultFontColor = "#f00";
 
                         new Chart("avg_pnt_bodytype", {
@@ -281,7 +281,7 @@ require_once 'includes/header.php';
                             "1 Crore"
                         ];
                         var yValues = [21.8, 19.2, 16.17, 15.8, 16.12, 14.26, 16.36, 14.15, 11.41];
-                        var barColors = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"];
+                        var barColors = ["blue", "red", "green", "pink", "yellow", "brown", "cyan", "orange", "purple"];
                         Chart.defaults.global.defaultFontColor = "#fff";
 
                         new Chart("mileage_petrol", {
@@ -331,7 +331,7 @@ require_once 'includes/header.php';
                         "1 Crore"
                     ];
                     var yValues = [85, 523, 196, 84, 37, 35, 79, 107, 129];
-                    var barColors = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue"];
+                    var barColors = ["blue", "red", "green", "pink", "yellow", "brown", "cyan", "orange", "purple"];
                     Chart.defaults.global.defaultFontColor = "#fff";
 
                     new Chart("count_per_price", {

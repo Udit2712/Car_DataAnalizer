@@ -7,15 +7,17 @@ html {
 }
 body {
   background: rgb(217,226,60);
+  background: linear-gradient(90deg, rgba(217,226,60,1) 0%, rgba(55,57,173,1) 39%, rgba(79,200,101,1) 100%);
+  /* background: linear-gradient(-45deg, #2355c7, #96dede, #5a8739, #23d5ab); */
+
   font-family: roboto, Sans-Serif, Arial;
   background: linear-gradient(-45deg,rgba(217,226,60,1) 0%, rgba(55,57,173,1) 39%, rgba(79,200,101,1) 100%);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
+
 #foot {
-  
   width: 100%;
-  
 }
 
 @keyframes gradient {
@@ -28,4 +30,7 @@ body {
   100% {
     background-position: 0% 50%;
   }
+} 
+.tableHead{
+  cursor: pointer;
 }
